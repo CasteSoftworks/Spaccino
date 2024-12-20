@@ -18,7 +18,7 @@ public class Menu {
                             break;
                             
                         case 2:
-                            Salva.leggiPunteggi("salvataggio.txt");
+                            Save.leggiPunteggi("salvataggio.txt");
                             break;
                         case 3:
                             System.exit(0);

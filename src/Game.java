@@ -93,7 +93,7 @@ class Game {
                         break;
 
                     default:
-                        System.out.println("Azione non valida.");
+                        System.out.println("\tAzione non valida.");
                         scanner.nextLine();
 
                 }
@@ -111,7 +111,7 @@ class Game {
         System.out.println("\nIl gioco è terminato! Ecco il tuo risultato:");
         dealer.getInventario();
         System.out.println("Soldi rimanenti: $" + dealer.getSoldi());
-        Salva.salvaSuFile(dealer.getNome(), dealer.getSoldi());
+        Save.salvaSuFile(dealer.getNome(), dealer.getSoldi());
         scanner.close();
     }
 

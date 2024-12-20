@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Salva {
+public class Save {
 
     public static void salvaSuFile(String testo, int numero) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("salvataggio.txt", true))) {
