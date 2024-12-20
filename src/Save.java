@@ -56,7 +56,8 @@ public class Save {
                 System.out.println(line);
             }
         } catch (IOException e) {
-            System.out.println("Errore durante la lettura del file: " + e.getMessage());
+            System.out.println("Errore durante la lettura del file:\n" + e.getMessage());
+            System.out.println("-".repeat(80));
             return;
         }
         System.out.println("-".repeat(80));

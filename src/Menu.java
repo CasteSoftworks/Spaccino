@@ -36,16 +36,16 @@ public class Menu {
 
     public static void printCandyEmpire() {
         String[] candyEmpireArt = {
-            "  CCCC AAAAA  N   N DDDD Y   Y    EEEEE M   M PPPP III RRRR  EEEEE",
-            " C     A   A  NN  N D   D Y Y     E     MM MM P   P I  R   R E     ",
-            " C     AAAAA  N N N D   D  Y      EEEE  M M M PPPP  I  RRRR  EEEE  ",
-            " C     A   A  N  NN D   D  Y      E     M   M P     I  R  R  E     ",
-            "  CCCC A   A  N   N DDDD   Y      EEEEE M   M P    III R   R EEEEE",
+            " SSSS PPPP    A    CCCC  CCCC III N   N  OOO ",
+            "S     P   P  A A  C     C      I  NN  N O   O",
+            " SSS  PPPP  AAAAA C     C      I  N N N O   O",
+            "    S P     A   A C     C      I  N  NN O   O",
+            "SSSS  P     S   S  CCCC  CCCC III N   N  OOO"
         };
 
         // Stampa l'arte in ASCII art mantenendo la larghezza di 80 caratteri
         for (String line : candyEmpireArt) {
-            System.out.println(String.format("%-80s", line));
+            System.out.println(" ".repeat((80-45)/2)+String.format("%-80s", line));
         }
     }
 
