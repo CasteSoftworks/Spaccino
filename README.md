@@ -19,9 +19,8 @@ The game is still in its infancy, but key features are being implemented. At thi
    ```git clone https://github.com/your-username/spaccino.git```
 
 2. Compile and run the game:
-   ```cd spaccino```
-   ```javac Spaccino.java```
-   ```java Spaccino```
+   ```javac -d bin src/*.java```
+   ```java -cp bin App```
 
 3. Follow the on-screen instructions to start playing. Your goal is to buy and sell drugs, manage your money, and adapt to the ever-changing market conditions.
 
