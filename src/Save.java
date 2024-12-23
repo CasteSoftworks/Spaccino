@@ -1,8 +1,19 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * La classe <code>Save</code> gestisce le operazioni di salvataggio, lettura e ordinamento dei punteggi su file.
+ * Supporta la scrittura di nuove voci nel file, la lettura dei punteggi salvati e l'ordinamento dei punteggi per visualizzarli in ordine decrescente.
+ */
 public class Save {
 
+    /**
+     * Salva una nuova voce di punteggio su file.
+     * Aggiunge un nuovo punteggio nel file di salvataggio e successivamente ordina il file.
+     * 
+     * @param testo La stringa che rappresenta il nome del giocatore o la descrizione del punteggio.
+     * @param numero Il punteggio associato al giocatore.
+     */
     public static void salvaSuFile(String testo, int numero) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("salvataggio.txt", true))) {
             writer.write(testo + " : " + numero);
@@ -14,6 +25,13 @@ public class Save {
         riordinaFile("salvataggio.txt");
     }
 
+    /**
+     * Riordina il contenuto del file di salvataggio.
+     * Legge le voci dal file, le ordina prima per punteggio decrescente e poi per testo alfabetico,
+     * e infine riscrive il file con le voci ordinate.
+     * 
+     * @param nomeFile Il nome del file da ordinare.
+     */
     public static void riordinaFile(String nomeFile) {
         List<Entry> entries = new ArrayList<>();
 
@@ -48,7 +66,13 @@ public class Save {
         }
     }
 
-    public static void leggiPunteggi(String nomeFile){
+    /**
+     * Legge e visualizza i punteggi salvati nel file.
+     * Stampa ogni riga del file di salvataggio, mostrando i punteggi dei giocatori.
+     * 
+     * @param nomeFile Il nome del file da leggere.
+     */
+    public static void leggiPunteggi(String nomeFile) {
         System.out.println("-".repeat(80));
         try (BufferedReader reader = new BufferedReader(new FileReader(nomeFile))) {
             String line;
@@ -61,23 +85,41 @@ public class Save {
             return;
         }
         System.out.println("-".repeat(80));
-
     }
 
-    // Classe per rappresentare una riga del file
+    /**
+     * La classe <code>Entry</code> rappresenta una voce nel file di salvataggio, 
+     * contenente il nome del giocatore (o una descrizione) e il relativo punteggio.
+     */
     static class Entry {
         private final String testo;
         private final int numero;
 
+        /**
+         * Costruttore della classe <code>Entry</code>.
+         * 
+         * @param testo Il nome del giocatore o la descrizione del punteggio.
+         * @param numero Il punteggio del giocatore.
+         */
         public Entry(String testo, int numero) {
             this.testo = testo;
             this.numero = numero;
         }
 
+        /**
+         * Restituisce il testo della voce di salvataggio.
+         * 
+         * @return Il testo (nome del giocatore o descrizione).
+         */
         public String getTesto() {
             return testo;
         }
 
+        /**
+         * Restituisce il numero (punteggio) associato alla voce.
+         * 
+         * @return Il punteggio del giocatore.
+         */
         public int getNumero() {
             return numero;
         }

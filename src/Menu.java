@@ -1,23 +1,33 @@
 import java.util.Scanner;
 
+/**
+ * La classe <code>Menu</code> gestisce l'interfaccia principale dell'applicazione, mostrando il menu e permettendo
+ * all'utente di selezionare diverse opzioni, come avviare il gioco, visualizzare la tabella dei punteggi o uscire.
+ */
 public class Menu {
+    
+    /**
+     * Mostra il menu principale e gestisce le scelte dell'utente.
+     * Il menu consente di avviare il gioco, visualizzare i punteggi salvati o uscire dall'applicazione.
+     * L'input dell'utente viene letto in un ciclo, con un controllo di validità per assicurarsi che sia un numero intero.
+     */
     public static void mostraMenu(){
         System.out.println("-".repeat(80));
         printCandyEmpire();
         System.out.println("-".repeat(80));
         System.out.println(" 1 - Gioca\n 2 - Tabella Punteggi\n 3 - Esci\n"+"-".repeat(80));
+        
         try(Scanner scanner = new Scanner(System.in)){
             while(true){
                 if(!scanner.hasNextInt()){
                     System.out.println("\t\tcomando errato - Inserisci un  numero");
                     scanner.next();
                 }else{
-                    int input=scanner.nextInt();
+                    int input = scanner.nextInt();
                     switch (input) {
                         case 1:
                             startGameMenu();
                             break;
-                            
                         case 2:
                             Save.leggiPunteggi("salvataggio.txt");
                             break;
@@ -29,12 +39,14 @@ public class Menu {
                             break;
                     }
                 }
-                    
             }
         }
-            
     }
 
+    /**
+     * Stampa l'ASCII art del titolo del gioco "Candy Empire".
+     * L'arte viene centrata per una larghezza di 80 caratteri.
+     */
     public static void printCandyEmpire() {
         String[] candyEmpireArt = {
             " SSSS PPPP    A    CCCC  CCCC III N   N  OOO ",
@@ -46,12 +58,18 @@ public class Menu {
 
         // Stampa l'arte in ASCII art mantenendo la larghezza di 80 caratteri
         for (String line : candyEmpireArt) {
-            System.out.println(" ".repeat((80-45)/2)+String.format("%-80s", line));
+            System.out.println(" ".repeat((80-45)/2) + String.format("%-80s", line));
         }
     }
 
+    /**
+     * Mostra il menu per avviare una nuova partita, chiedendo all'utente il nome del giocatore,
+     * il capitale iniziale e il numero di giorni di gioco.
+     * Crea e avvia un oggetto <code>Game</code> con le informazioni inserite dall'utente.
+     */
     public static void startGameMenu(){
         Scanner scanner = new Scanner(System.in);
+        
         System.out.print("Inserisci il tuo nome: ");
         String playerName = scanner.nextLine();
                 
