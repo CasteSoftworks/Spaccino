@@ -1,5 +1,5 @@
 /**
- * Rappresenta il gioco "Candy Empire". Il giocatore deve comprare e vendere caramelle 
+ * Rappresenta il gioco Spaccino. Il giocatore deve comprare e vendere caramelle 
  * per accumulare ricchezza entro un numero limitato di giorni. Gli eventi casuali 
  * influenzano i prezzi del mercato e il gameplay.
  */
