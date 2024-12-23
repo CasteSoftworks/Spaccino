@@ -44,7 +44,7 @@ public class Menu {
     }
 
     /**
-     * Stampa l'ASCII art del titolo del gioco "Candy Empire".
+     * Stampa l'ASCII art del titolo del gioco Spaccino.
      * L'arte viene centrata per una larghezza di 80 caratteri.
      */
     public static void printCandyEmpire() {
