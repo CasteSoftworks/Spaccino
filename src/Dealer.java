@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Rappresenta un commerciante (Dealer) nel gioco "Candy Empire".
+ * Rappresenta un commerciante (Dealer) nel gioco Spaccino.
  * Un Dealer possiede un inventario di articoli e una quantità di denaro che può essere
  * utilizzata per acquistare e vendere beni sul mercato.
  */
