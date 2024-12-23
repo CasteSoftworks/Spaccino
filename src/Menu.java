@@ -9,7 +9,8 @@ public class Menu {
         try(Scanner scanner = new Scanner(System.in)){
             while(true){
                 if(!scanner.hasNextInt()){
-                    System.out.println("\t\tcomando errato");
+                    System.out.println("\t\tcomando errato - Inserisci un  numero");
+                    scanner.next();
                 }else{
                     int input=scanner.nextInt();
                     switch (input) {

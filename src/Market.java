@@ -68,15 +68,37 @@ public class Market {
             return;
         }
 
-        System.out.println("Evento del giorno: " + event.getTitle());
-        System.out.println(event.getDescription());
+        String eventTitle = event.getTitle();
+        String eventDescription = event.getDescription();
+        double priceModifier = event.getPriceModifier();
+        String modifier = event.getModifier();
+
+        // Se l'evento contiene "----", sostituisci con una droga disponibile
+        if (eventTitle.contains("----") || eventDescription.contains("----")) {
+            List<String> availableDrugNames = new ArrayList<>(availableCandies.keySet());
+            if (!availableDrugNames.isEmpty()) {
+                String randomDrug = availableDrugNames.get(random.nextInt(availableDrugNames.size()));
+                eventTitle = eventTitle.replace("----", randomDrug);
+                eventDescription = eventDescription.replace("----", randomDrug);
+
+                if (modifier.isEmpty()) {
+                    modifier = randomDrug;
+                }
+            }
+        }
+
+        System.out.println("Evento del giorno: " + eventTitle);
+        System.out.println(eventDescription);
 
         // Modifica i prezzi in base all'evento
         for (Map.Entry<String, Integer> entry : availableCandies.entrySet()) {
             String candyName = entry.getKey();
             int oldPrice = entry.getValue();
-            int newPrice = (int) Math.max(1, oldPrice * event.getPriceModifier());
-            availableCandies.put(candyName, newPrice); // Aggiorna il prezzo
+
+            if (modifier.isEmpty() || modifier.equals(candyName)) {
+                int newPrice = (int) Math.max(1, oldPrice * priceModifier);
+                availableCandies.put(candyName, newPrice); // Aggiorna il prezzo
+            }
         }
     }
 

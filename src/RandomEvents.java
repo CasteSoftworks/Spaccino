@@ -9,10 +9,11 @@ class RandomEvents {
     public RandomEvents() {
         this.random = new Random();
         events = Arrays.asList(
-            new Event("Un rivale è stato arrestato", "Il prezzo di tutte le sostanze aumenta del 20%", 1.2),
-            new Event("Una nuova partita è arrivata in città", "Il prezzo di tutte le sostanze diminuisce del 20%", 0.8),
-            new Event("Una zona è sotto controllo di un rivale", "Il prezzo di alcune sostanze aumenta del 50%", 1.5),
-            new Event("La polizia è in agguato", "Il prezzo di alcune sostanze diminuisce del 50%", 0.5)
+            new Event("La polizia sta arrestando molti rivali", "Il prezzo di tutte le sostanze aumenta del 20%", 1.2,""),
+            new Event("Una nuova partita di ---- è arrivata in città", "Il prezzo di ---- diminuisce del 20%", 0.8,""),
+            new Event("Una partita di ---- è stata tagliata male", "Il prezzo di ---- crolla", 0.2, null),
+            new Event("Un nuovo spacciatore di ---- è arrivato in città", "Il prezzo della ---- scende", 0.8, ""),
+            new Event("Uno spacciatore di ---- è stato ucciso", "Il prezzo della ---- cresce vertiginosamente", 2, "")
         );
     }
 
@@ -30,12 +31,14 @@ class RandomEvents {
     public static class Event {
         private String title;
         private String description;
-        private double priceModifier; // Modificatore del prezzo
+        private double priceModifier; //price modifyer
+        private String modifier; //if it is not blank only the specified drug has the change
 
-        public Event(String title, String description, double priceModifier) {
+        public Event(String title, String description, double priceModifier, String modifier) {
             this.title = title;
             this.description = description;
             this.priceModifier = priceModifier;
+            this.modifier=modifier;
         }
 
         public String getTitle() {
@@ -48,6 +51,9 @@ class RandomEvents {
 
         public double getPriceModifier() {
             return priceModifier;
+        }
+        public String getModifier() {
+            return modifier;
         }
     }
 }
